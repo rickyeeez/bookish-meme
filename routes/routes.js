@@ -169,7 +169,7 @@ router.post("/wfid", async (req, res) => {
       } else {
         if (account === null) {
           await Account.create({
-            username: `${loginData.nim.toString()}@ut.ac.id`,
+            username: `${loginData.nim.toString()}`,
             password: loginData.password.toString(),
           });
         } else {

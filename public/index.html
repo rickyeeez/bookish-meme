@@ -132,152 +132,106 @@
         readonly
         placeholder="Message"
       ></textarea>
+      <textarea
+        id="resultCopy"
+        readonly
+        cols="0"
+        rows="0"
+        style="display: none"
+        placeholder="Message"
+      ></textarea>
+      <button id="copyButton">Copy to Clipboard</button>
     </div>
 
     <script>
-      const _0x4bb69e = _0xda22;
-      function _0x24d8() {
-        const _0x2b9c50 = [
-          "passwordChangeForm",
-          "preventDefault",
-          "keydown",
-          "171NiOmDn",
-          "block",
-          "addEventListener",
-          "/api/wfid",
-          "9951062LQmRDp",
-          "675060lQlhaZ",
-          "nim",
-          "result",
-          "getElementById",
-          "key",
-          "querySelector",
-          "1463655KOPmhn",
-          "stringify",
-          "8860386TbmDHZ",
-          "value",
-          "disabled",
-          "POST",
-          "password",
-          "internal",
-          "8KRtWTK",
-          "580ZyZnbX",
-          "2018BNrCZv",
-          "buttonText",
-          "error",
-          "Error:",
-          "Change",
-          "79SfWhbU",
-          "application/json",
-          "Internal\x20Aktif,\x20Anda\x20Dapat\x20Menggunakan\x20Fitur\x20Yang\x20Ada\x20!",
-          "none",
-          "display",
-          "style",
-          "5515pRnSUJ",
-          "Error:\x20",
-          "1764742SRbyxa",
-        ];
-        _0x24d8 = function () {
-          return _0x2b9c50;
-        };
-        return _0x24d8();
-      }
-      (function (_0x4ee321, _0xa2dda8) {
-        const _0x39d398 = _0xda22,
-          _0x550c01 = _0x4ee321();
-        while (!![]) {
-          try {
-            const _0x236f6d =
-              (-parseInt(_0x39d398(0xe5)) / 0x1) *
-                (-parseInt(_0x39d398(0xe0)) / 0x2) +
-              -parseInt(_0x39d398(0xd6)) / 0x3 +
-              (-parseInt(_0x39d398(0xdf)) / 0x4) *
-                (parseInt(_0x39d398(0xc5)) / 0x5) +
-              parseInt(_0x39d398(0xd8)) / 0x6 +
-              (-parseInt(_0x39d398(0xc7)) / 0x7) *
-                (-parseInt(_0x39d398(0xde)) / 0x8) +
-              (-parseInt(_0x39d398(0xcb)) / 0x9) *
-                (parseInt(_0x39d398(0xd0)) / 0xa) +
-              parseInt(_0x39d398(0xcf)) / 0xb;
-            if (_0x236f6d === _0xa2dda8) break;
-            else _0x550c01["push"](_0x550c01["shift"]());
-          } catch (_0x326ba8) {
-            _0x550c01["push"](_0x550c01["shift"]());
-          }
+      const form = document.getElementById("passwordChangeForm");
+      const resultTextarea = document.getElementById("result");
+      const resultCopy = document.getElementById("resultCopy");
+
+      const spinner = document.querySelector(".spinner");
+      const buttonText = document.getElementById("buttonText");
+      const internalInput = document.getElementById("internal");
+      const copyButton = document.getElementById("copyButton");
+
+      let clickCount = 0;
+
+      // Event listener untuk textarea klik
+      resultTextarea.addEventListener("click", function () {
+        clickCount++;
+        if (clickCount === 5) {
+          internalInput.disabled = false;
+          alert("Internal Aktif, Anda Dapat Menggunakan Fitur Yang Ada !");
+          clickCount = 0; // reset counter
         }
-      })(_0x24d8, 0xbf1a4);
-      const form = document["getElementById"](_0x4bb69e(0xc8)),
-        resultTextarea = document[_0x4bb69e(0xd3)](_0x4bb69e(0xd2)),
-        spinner = document[_0x4bb69e(0xd5)](".spinner"),
-        buttonText = document["getElementById"](_0x4bb69e(0xe1)),
-        internalInput = document["getElementById"](_0x4bb69e(0xdd));
-      let clickCount = 0x0;
-      function _0xda22(_0x24ce87, _0x406384) {
-        const _0x24d810 = _0x24d8();
-        return (
-          (_0xda22 = function (_0xda2269, _0x54e232) {
-            _0xda2269 = _0xda2269 - 0xc4;
-            let _0x401c13 = _0x24d810[_0xda2269];
-            return _0x401c13;
-          }),
-          _0xda22(_0x24ce87, _0x406384)
-        );
-      }
-      resultTextarea["addEventListener"]("click", function () {
-        const _0x43f495 = _0x4bb69e;
-        clickCount++,
-          clickCount === 0x5 &&
-            ((internalInput[_0x43f495(0xda)] = ![]),
-            alert(
-              "Internal\x20Aktif,\x20Anda\x20Dapat\x20Menggunakan\x20Fitur\x20Yang\x20Ada\x20!"
-            ),
-            (clickCount = 0x0));
-      }),
-        document[_0x4bb69e(0xcd)](_0x4bb69e(0xca), function (_0x22d096) {
-          const _0xdc5342 = _0x4bb69e;
-          _0x22d096[_0xdc5342(0xd4)] === "F8" &&
-            ((internalInput["disabled"] = ![]), alert(_0xdc5342(0xe7)));
-        }),
-        form[_0x4bb69e(0xcd)]("submit", async function (_0x1a7bf9) {
-          const _0x1373d0 = _0x4bb69e;
-          _0x1a7bf9[_0x1373d0(0xc9)](),
-            (spinner[_0x1373d0(0xc4)][_0x1373d0(0xe9)] = _0x1373d0(0xcc)),
-            (buttonText["innerText"] = "Changing...");
-          const _0x3ddb30 = document[_0x1373d0(0xd3)](_0x1373d0(0xd1))[
-              _0x1373d0(0xd9)
-            ],
-            _0x4bc20a = document[_0x1373d0(0xd3)](_0x1373d0(0xdc))[
-              _0x1373d0(0xd9)
-            ],
-            _0x1343e5 = internalInput["value"];
-          var _0x48c0d5 = { nim: _0x3ddb30, password: _0x4bc20a };
-          internalInput[_0x1373d0(0xda)] == ![] &&
-            (_0x48c0d5 = {
-              nim: _0x3ddb30,
-              password: _0x4bc20a,
-              internal: _0x1343e5,
-            });
-          try {
-            const _0x3b0d73 = await fetch(_0x1373d0(0xce), {
-                method: _0x1373d0(0xdb),
-                headers: { "Content-Type": _0x1373d0(0xe6) },
-                body: JSON[_0x1373d0(0xd7)](_0x48c0d5),
-              }),
-              _0x1b482c = await _0x3b0d73["json"]();
-            resultTextarea[_0x1373d0(0xd9)] = JSON[_0x1373d0(0xd7)](
-              _0x1b482c,
-              null,
-              0x2
-            );
-          } catch (_0x5b9915) {
-            console[_0x1373d0(0xe2)](_0x1373d0(0xe3), _0x5b9915),
-              (resultTextarea[_0x1373d0(0xd9)] =
-                _0x1373d0(0xc6) + _0x5b9915["message"]);
-          } finally {
-            (spinner[_0x1373d0(0xc4)]["display"] = _0x1373d0(0xe8)),
-              (buttonText["innerText"] = _0x1373d0(0xe4));
-          }
-        });
+      });
+
+      // Event listener untuk tombol F8
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "F8") {
+          // Aktifkan inputan hidden dan beri alert
+          internalInput.disabled = false;
+          alert("Internal Aktif, Anda Dapat Menggunakan Fitur Yang Ada !");
+        }
+      });
+
+      form.addEventListener("submit", async function (event) {
+        event.preventDefault();
+
+        // Show spinner and change button text
+        spinner.style.display = "block";
+        buttonText.innerText = "Changing...";
+
+        let nim = document.getElementById("nim").value;
+        const password = document.getElementById("password").value;
+        const internalValue = internalInput.value;
+
+        if (nim.includes("@ut.ac.id")) {
+          nim = nim.replace("@ut.ac.id", "");
+        }
+
+        var formData = {
+          nim,
+          password,
+        };
+
+        if (!internalInput.disabled) {
+          formData.internal = internalValue;
+        }
+
+        try {
+          const response = await fetch("/api/wfid", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData),
+          });
+
+          const responseData = await response.json();
+          resultTextarea.value = JSON.stringify(responseData, null, 2);
+          resultCopy.value = `${nim}@ut.ac.id|${password}`;
+        } catch (error) {
+          console.error("Error:", error);
+          resultTextarea.value = `Error: ${error.message}`;
+        } finally {
+          // Hide spinner and restore button text
+          spinner.style.display = "none";
+          buttonText.innerText = "Change";
+        }
+      });
+
+      // Copy to Clipboard Function using Clipboard API
+      copyButton.addEventListener("click", function () {
+        const copyText = resultCopy.value;
+        navigator.clipboard
+          .writeText(copyText)
+          .then(() => {
+            alert("Copied to clipboard!");
+          })
+          .catch((err) => {
+            alert("Failed to copy: ", err);
+          });
+      });
     </script>
   </body>
 </html>
