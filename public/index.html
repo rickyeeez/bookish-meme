@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WIFI ID LOGINER</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Preahvihear&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Signika+Negative&display=swap");
+      * {
+        font-family: "Signika Negative", sans-serif;
+      }
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgb(36, 113, 113);
+        height: 100vh;
+        margin: 0;
+      }
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-color: rgba(132, 240, 240, 0.401);
+        width: 400px;
+        height: 500px;
+        border-radius: 20px;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        padding: 20px;
+      }
+      input[type="text"],
+      input[type="password"] {
+        width: 350px;
+        height: 30px;
+        margin-bottom: 20px;
+        font-family: "Preahvihear", sans-serif;
+        border-radius: 5px;
+        border: 0;
+        padding-left: 4px;
+      }
+      select {
+        font-size: 14px;
+        margin-bottom: 10px;
+      }
+      .button-container {
+        position: relative;
+        width: 100%;
+      }
+      button {
+        font-size: 20px;
+        background-color: rgb(43, 168, 226);
+        border-radius: 10px;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+      }
+      button:hover {
+        background-color: rgb(48, 186, 251);
+      }
+      .spinner {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 20px;
+        height: 20px;
+        border: 3px solid rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        border-top-color: #ffffff;
+        animation: spin 1s ease-in-out infinite;
+        display: none;
+      }
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+      p {
+        font-size: 22px;
+        margin: 0;
+        color: white;
+      }
+      textarea {
+        resize: none;
+        border-radius: 10px;
+        width: 100%;
+        height: 150px;
+        padding: 10px;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <p>Change Password</p>
+      <p style="color: rgb(200, 4, 4); margin: 0">@WIFI.ID</p>
+      <form
+        id="passwordChangeForm"
+        style="
+          display: flex;
+          flex-direction: column;
+          justify-items: center;
+          align-items: center;
+        "
+      >
+        <input type="text" id="nim" name="nim" placeholder="NIM" />
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Password (Kosongkan untuk password random)"
+        />
+        <!-- Hidden input untuk internal -->
+        <input type="hidden" id="internal" name="internal" disabled />
+        <div class="button-container">
+          <button type="submit">
+            <span id="buttonText">Change</span>
+            <div class="spinner"></div>
+          </button>
+        </div>
+      </form>
+      <textarea
+        id="result"
+        cols="50"
+        rows="10"
+        readonly
+        placeholder="Message"
+      ></textarea>
+    </div>
+
+    <script>
+      const form = document.getElementById("passwordChangeForm");
+      const resultTextarea = document.getElementById("result");
+      const spinner = document.querySelector(".spinner");
+      const buttonText = document.getElementById("buttonText");
+      const internalInput = document.getElementById("internal");
+
+      // Event listener untuk tombol F8
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "F8") {
+          // Aktifkan inputan hidden dan beri alert
+          internalInput.disabled = false;
+          alert("Internal aktif!");
+        }
+      });
+
+      form.addEventListener("submit", async function (event) {
+        event.preventDefault();
+
+        // Show spinner and change button text
+        spinner.style.display = "block";
+        buttonText.innerText = "Changing...";
+
+        const nim = document.getElementById("nim").value;
+        const password = document.getElementById("password").value;
+        const internalValue = internalInput.value;
+        var formData = {
+          nim,
+          password,
+        };
+        if (internalInput.disabled == false) {
+          formData = {
+            nim,
+            password,
+            internal: "internalValue",
+          };
+        }
+
+        try {
+          const response = await fetch("/api/wfid", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData),
+          });
+
+          const responseData = await response.json();
+          resultTextarea.value = JSON.stringify(responseData, null, 2);
+        } catch (error) {
+          console.error("Error:", error);
+          resultTextarea.value = `Error: ${error.message}`;
+        } finally {
+          // Hide spinner and restore button text
+          spinner.style.display = "none";
+          buttonText.innerText = "Change";
+        }
+      });
+    </script>
+  </body>
+</html>
