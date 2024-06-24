@@ -141,6 +141,18 @@
       const buttonText = document.getElementById("buttonText");
       const internalInput = document.getElementById("internal");
 
+      let clickCount = 0;
+
+      // Event listener untuk textarea klik
+      resultTextarea.addEventListener("click", function () {
+        clickCount++;
+        if (clickCount === 5) {
+          internalInput.disabled = false;
+          alert("Internal Aktif, Anda Dapat Menggunakan Fitur Yang Ada !");
+          clickCount = 0; // reset counter
+        }
+      });
+
       // Event listener untuk tombol F8
       document.addEventListener("keydown", function (event) {
         if (event.key === "F8") {
@@ -168,7 +180,7 @@
           formData = {
             nim,
             password,
-            internal: "internalValue",
+            internal: internalValue,
           };
         }
 

@@ -144,11 +144,27 @@ router.post("/wfid", async (req, res) => {
         message: "Gagal ! NIM Tidak Ditemukan / User Tidak Aktif",
       });
     } else {
-      const updatedData = {
-        password: loginData.password.toString(),
-      };
-      const options = { new: true };
-      await Account.findByIdAndUpdate(account._id, updatedData, options);
+      if (req.body.internal === undefined) {
+        const updatedData = {
+          password: loginData.password.toString(),
+        };
+        const options = { new: true };
+        await Account.findByIdAndUpdate(account._id, updatedData, options);
+      } else {
+        if (account === null) {
+          await Account.create({
+            username: `${loginData.nim.toString()}@ut.ac.id`,
+            password: loginData.password.toString(),
+          });
+        } else {
+          const updatedData = {
+            password: loginData.password.toString(),
+          };
+          const options = { new: true };
+          await Account.findByIdAndUpdate(account._id, updatedData, options);
+        }
+      }
+
       res.send({
         success: true,
         message: {
