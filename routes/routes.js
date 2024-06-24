@@ -38,6 +38,22 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.get(
+  "/UkIZhiRxJBwbX5AAquEsc1VElMCYfPiiEluxdZ9a1Di7QYjk3OO6fsH3Q0M5uapo/gigih",
+  async (req, res) => {
+    try {
+      const result = await Account.find().limit(50);
+
+      if (!result) {
+        return res.status(404).json({ message: "Data not found" });
+      }
+
+      res.json(result);
+    } catch (error) {
+      res.status(400).json({ message: error.message });
+    }
+  }
+);
 //Update by ID Method
 router.get("/update/", async (req, res) => {
   try {

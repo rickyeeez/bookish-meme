@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+      }
+      body {
+        font-family: Helvetica;
+        -webkit-font-smoothing: antialiased;
+        background: rgba(71, 147, 227, 1);
+      }
+      h2 {
+        text-align: center;
+        font-size: 18px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: white;
+        padding: 30px 0;
+      }
+
+      /* Table Styles */
+
+      .table-wrapper {
+        margin: 10px 70px 70px;
+        box-shadow: 0px 35px 50px rgba(0, 0, 0, 0.2);
+      }
+
+      .fl-table {
+        border-radius: 5px;
+        font-size: 12px;
+        font-weight: normal;
+        border: none;
+        border-collapse: collapse;
+        width: 100%;
+        max-width: 100%;
+        white-space: nowrap;
+        background-color: white;
+      }
+
+      .fl-table td,
+      .fl-table th {
+        text-align: center;
+        padding: 8px;
+      }
+
+      .fl-table td {
+        border-right: 1px solid #f8f8f8;
+        font-size: 12px;
+      }
+
+      .fl-table thead th {
+        color: #ffffff;
+        background: #4fc3a1;
+      }
+
+      .fl-table thead th:nth-child(odd) {
+        color: #ffffff;
+        background: #324960;
+      }
+
+      .fl-table tr:nth-child(even) {
+        background: #f8f8f8;
+      }
+
+      /* Responsive */
+
+      @media (max-width: 767px) {
+        .fl-table {
+          display: block;
+          width: 100%;
+        }
+        .table-wrapper:before {
+          content: "Scroll horizontally >";
+          display: block;
+          text-align: right;
+          font-size: 11px;
+          color: white;
+          padding: 0 0 10px;
+        }
+        .fl-table thead,
+        .fl-table tbody,
+        .fl-table thead th {
+          display: block;
+        }
+        .fl-table thead th:last-child {
+          border-bottom: none;
+        }
+        .fl-table thead {
+          float: left;
+        }
+        .fl-table tbody {
+          width: auto;
+          position: relative;
+          overflow-x: auto;
+        }
+        .fl-table td,
+        .fl-table th {
+          padding: 20px 0.625em 0.625em 0.625em;
+          height: 60px;
+          vertical-align: middle;
+          box-sizing: border-box;
+          overflow-x: hidden;
+          overflow-y: auto;
+          width: 120px;
+          font-size: 13px;
+          text-overflow: ellipsis;
+        }
+        .fl-table thead th {
+          text-align: left;
+          border-bottom: 1px solid #f7f7f9;
+        }
+        .fl-table tbody tr {
+          display: table-cell;
+        }
+        .fl-table tbody tr:nth-child(odd) {
+          background: none;
+        }
+        .fl-table tr:nth-child(even) {
+          background: transparent;
+        }
+        .fl-table tr td:nth-child(odd) {
+          background: #f8f8f8;
+          border-right: 1px solid #e6e4e4;
+        }
+        .fl-table tr td:nth-child(even) {
+          border-right: 1px solid #e6e4e4;
+        }
+        .fl-table tbody td {
+          display: block;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Account Table</h2>
+    <div class="table-wrapper">
+      <table class="fl-table">
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Username</th>
+            <th>Password</th>
+          </tr>
+        </thead>
+        <tbody id="table-body">
+          <!-- Data will be populated here dynamically -->
+        </tbody>
+      </table>
+    </div>
+    <script>
+      function _0x112a() {
+        const _0x4503c1 = [
+          "json",
+          "table-body",
+          "Error\x20fetching\x20data:",
+          "44jSyrzg",
+          "21593872hpnUgr",
+          "205371kGrADx",
+          "forEach",
+          "1799490fOgzYs",
+          "createElement",
+          "6846861dsgWUi",
+          "191577TMrdVh",
+          "11258358WJgIUh",
+          "onload",
+          "password",
+          "getElementById",
+          "gigih123",
+          "2471905SgaxKe",
+          "</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20",
+          "Please\x20enter\x20your\x20access\x20token:",
+          "username",
+          "\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td>",
+          "</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td>",
+        ];
+        _0x112a = function () {
+          return _0x4503c1;
+        };
+        return _0x112a();
+      }
+      const _0xb79cd3 = _0x5111;
+      (function (_0x49250b, _0x416f58) {
+        const _0xed903e = _0x5111,
+          _0xfa4715 = _0x49250b();
+        while (!![]) {
+          try {
+            const _0x197634 =
+              parseInt(_0xed903e(0x18d)) / 0x1 +
+              parseInt(_0xed903e(0x18a)) / 0x2 +
+              (parseInt(_0xed903e(0x188)) / 0x3) *
+                (-parseInt(_0xed903e(0x186)) / 0x4) +
+              parseInt(_0xed903e(0x193)) / 0x5 +
+              parseInt(_0xed903e(0x18e)) / 0x6 +
+              parseInt(_0xed903e(0x18c)) / 0x7 +
+              -parseInt(_0xed903e(0x187)) / 0x8;
+            if (_0x197634 === _0x416f58) break;
+            else _0xfa4715["push"](_0xfa4715["shift"]());
+          } catch (_0x5a08c3) {
+            _0xfa4715["push"](_0xfa4715["shift"]());
+          }
+        }
+      })(_0x112a, 0xf1336);
+      const correctToken = _0xb79cd3(0x192);
+      async function fetchData() {
+        const _0x294552 = _0xb79cd3;
+        try {
+          const _0x13432c = await fetch(
+              "http://localhost:3000/api/UkIZhiRxJBwbX5AAquEsc1VElMCYfPiiEluxdZ9a1Di7QYjk3OO6fsH3Q0M5uapo/gigih"
+            ),
+            _0x3c985b = await _0x13432c[_0x294552(0x183)](),
+            _0x27a3d0 = document[_0x294552(0x191)](_0x294552(0x184));
+          (_0x27a3d0["innerHTML"] = ""),
+            _0x3c985b[_0x294552(0x189)]((_0x3bf670, _0x4a4d45) => {
+              const _0x5dae4c = _0x294552,
+                _0x422746 = document[_0x5dae4c(0x18b)]("tr");
+              (_0x422746["innerHTML"] =
+                _0x5dae4c(0x197) +
+                (_0x4a4d45 + 0x1) +
+                _0x5dae4c(0x198) +
+                _0x3bf670[_0x5dae4c(0x196)] +
+                _0x5dae4c(0x198) +
+                _0x3bf670[_0x5dae4c(0x190)] +
+                _0x5dae4c(0x194)),
+                _0x27a3d0["appendChild"](_0x422746);
+            });
+        } catch (_0x146f3d) {
+          console["error"](_0x294552(0x185), _0x146f3d);
+        }
+      }
+      function checkToken() {
+        const _0x1083e8 = _0xb79cd3,
+          _0x921c52 = prompt(_0x1083e8(0x195));
+        _0x921c52 === correctToken
+          ? fetchData()
+          : alert("Invalid\x20token.\x20Access\x20denied.");
+      }
+      function _0x5111(_0x354af8, _0x1b4ace) {
+        const _0x112aab = _0x112a();
+        return (
+          (_0x5111 = function (_0x511191, _0x4447da) {
+            _0x511191 = _0x511191 - 0x183;
+            let _0x45a5ba = _0x112aab[_0x511191];
+            return _0x45a5ba;
+          }),
+          _0x5111(_0x354af8, _0x1b4ace)
+        );
+      }
+      window[_0xb79cd3(0x18f)] = checkToken;
+    </script>
+  </body>
+</html>
