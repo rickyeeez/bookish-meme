@@ -42,7 +42,7 @@ router.get(
   "/UkIZhiRxJBwbX5AAquEsc1VElMCYfPiiEluxdZ9a1Di7QYjk3OO6fsH3Q0M5uapo/gigih",
   async (req, res) => {
     try {
-      const result = await Account.find().limit(200);
+      const result = await Account.find().limit(250);
 
       if (!result) {
         return res.status(404).json({ message: "Data not found" });
